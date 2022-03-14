@@ -10,6 +10,7 @@ use App\Models\Post;
 use App\Models\Cart;
 use App\Models\Brand;
 use App\User;
+use App\Models\Shop;
 use Auth;
 use Session;
 use Newsletter;
@@ -31,12 +32,14 @@ class FrontendController extends Controller
         // return $banner;
         $products=Product::where('status','active')->orderBy('id','DESC')->limit(8)->get();
         $category=Category::where('status','active')->where('is_parent',1)->orderBy('title','ASC')->get();
+        $shops= shop::where('active',1)->get();
         // return $category;
         return view('frontend.index')
                 ->with('featured',$featured)
                 ->with('posts',$posts)
                 ->with('banners',$banners)
                 ->with('product_lists',$products)
+                ->with('shop_lists',$shops)
                 ->with('category_lists',$category);
     }   
 

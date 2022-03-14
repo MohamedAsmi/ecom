@@ -40,21 +40,27 @@
 <style>
     /* Multilevel dropdown */
     .dropdown-submenu {
-    position: relative;
+        position: relative;
     }
 
     .dropdown-submenu>a:after {
-    content: "\f0da";
-    float: right;
-    border: none;
-    font-family: 'FontAwesome';
+        content: "\f0da";
+        float: right;
+        border: none;
+        font-family: 'FontAwesome';
     }
 
     .dropdown-submenu>.dropdown-menu {
-    top: 0;
-    left: 100%;
-    margin-top: 0px;
-    margin-left: 0px;
+        top: 0;
+        left: 100%;
+        margin-top: 0px;
+        margin-left: 0px;
+    }
+
+    .midium-banner .single-banner:hover {
+        width: 104%;
+        margin-left: -2%;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
 
     /*
