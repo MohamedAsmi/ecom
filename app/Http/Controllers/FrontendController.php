@@ -43,6 +43,13 @@ class FrontendController extends Controller
                 ->with('category_lists',$category);
     }   
 
+    public function single_product(Request $request , $id)
+    {
+        $single_shops = shop::where('active', 1)->where('id',$id)->get();
+        
+        return view('frontend.pages.single_pro')->with('single_shops', $single_shops);
+    }
+
     public function aboutUs(){
         return view('frontend.pages.about-us');
     }

@@ -178,7 +178,7 @@
                             <div class="content">
                                 <p>{{$data->service_type}}</p>
                                 <h3>{{$data->company_name }}</h3>
-                                <a href="#">Shop Now</a>
+                                <a href="{{asset('single_product/'.$data->id)}}">Shop Now</a>
                             </div>
                         </div>
                     </div>
