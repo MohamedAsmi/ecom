@@ -5,24 +5,20 @@
 @section('main-content')
 
 
-@foreach($single_shops as $data)
 <!-- Single shop Banner  -->
 <div class="col-12">
     <h2 class="single_product_image">Our Package</h2>
     <div class="single-banner row">
-        @php
-        $services = explode('|*|',$data->details_of_service);
-        $i = 0;
-        @endphp
-        @foreach($services as $service)
-        <div class="col-lg-4 col-md-4 col-6 single_product_sty" attr="{{$i++}}">
-            <div class="signle_product_ss">{{$service}}</div>
+       
+        @foreach($single_shops as $key =>$data)
+        <div class="col-lg-4 col-md-4 col-6 single_product_sty" attr="{{$key}}">
+            <div class="signle_product_ss">{{$data->item_name}}</div>
         </div>
         @endforeach
     </div>
 </div>
 <!-- /End Single shop Banner  -->
-@endforeach
+
 
 
 <!-- Start Shop Services Area -->
@@ -110,7 +106,7 @@
 @endpush
 @push('scripts')
 
-<script>
+{{-- <script>
     $(document).ready(function() {
         auto_shadow();
 
@@ -138,5 +134,5 @@
             auto_shadow_timer(counter);
         }
     })
-</script>
+</script> --}}
 @endpush

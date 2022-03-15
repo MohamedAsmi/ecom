@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\item_category;
 use App\Models\Banner;
 use App\Models\Product;
 use App\Models\Category;
@@ -45,7 +47,7 @@ class FrontendController extends Controller
 
     public function single_product(Request $request , $id)
     {
-        $single_shops = shop::where('active', 1)->where('id',$id)->get();
+        $single_shops = item_category::all();
         
         return view('frontend.pages.single_pro')->with('single_shops', $single_shops);
     }
