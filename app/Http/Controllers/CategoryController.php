@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use Illuminate\Support\Str;
 
+use function GuzzleHttp\json_decode;
+
 class CategoryController extends Controller
 {
     /**
@@ -161,5 +163,11 @@ class CategoryController extends Controller
         else{
             return response()->json(['status'=>true,'msg'=>'','data'=>$child_cat]);
         }
+    }
+
+    public function categoryFilter(Request $request)
+    {
+        // $blog = Blog::find(1);
+        return $request;
     }
 }

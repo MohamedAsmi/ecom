@@ -90,11 +90,11 @@
                                 @endphp
                                 @if($categories)
                                 <button class="btn" style="background:black"data-filter="*">
-                                    All Products
+                                 All Stores
                                 </button>
                                     @foreach($categories as $key=>$cat)
 
-                                    <button class="btn" style="background:none;color:black;"data-filter=".{{$cat->id}}">
+                                    <button class="btn" style="background:none;color:black;"data-filter="{{$cat->id}}">
                                         {{$cat->title}}
                                     </button>
                                     @endforeach
@@ -627,5 +627,7 @@
             return false
         }
     </script>
+    <script src="{{asset('js/common.js')}}"></script>
+    <script src="{{asset('js/front_end/filter_category.js')}}"></script>
 
 @endpush
