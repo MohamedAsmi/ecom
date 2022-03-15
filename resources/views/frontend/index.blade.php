@@ -168,7 +168,7 @@
 <!-- Start Midium Banner  -->
 <section class="midium-banner" style="margin-bottom: 20px;">
     <div class="container">
-        <div class="row">
+        <div class="row shop_details">
             @if($shop_lists)
                 @foreach($shop_lists as $data)
                     <!-- Single Banner  -->

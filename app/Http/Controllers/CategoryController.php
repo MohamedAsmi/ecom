@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Shop;
 use Illuminate\Support\Str;
 
 use function GuzzleHttp\json_decode;
@@ -168,6 +169,10 @@ class CategoryController extends Controller
     public function categoryFilter(Request $request)
     {
         // $blog = Blog::find(1);
-        return $request;
+        // return $request;
+        // $where = array('id' => $id);
+        $user  = Shop::where('cat_id', $request->id)->first();
+ 
+        return $user;
     }
 }
