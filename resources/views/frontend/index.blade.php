@@ -17,7 +17,7 @@
                     <div class="carousel-caption d-none d-md-block text-left">
                         <h1 class="wow fadeInDown">{{$banner->title}}</h1>
                         <p>{!! html_entity_decode($banner->description) !!}</p>
-                        <a class="btn btn-lg ws-btn wow fadeInUpBig" href="{{route('product-grids')}}" role="button">Shop Now<i class="far fa-arrow-alt-circle-right"></i></i></a>
+                        <!-- <a class="btn btn-lg ws-btn wow fadeInUpBig" href="{{route('product-grids')}}" role="button"><i class="far fa-arrow-alt-circle-right"></i></i></a> -->
                     </div>
                 </div>
             @endforeach
@@ -36,7 +36,7 @@
 <!--/ End Slider Area -->
 
 <!-- Start Small Banner  -->
-<section class="small-banner section">
+<!-- <section class="small-banner section">
     <div class="container-fluid">
         <div class="row">
             @php
@@ -44,9 +44,9 @@
             @endphp
             @if($category_lists)
                 @foreach($category_lists as $cat)
-                    @if($cat->is_parent==1)
+                    @if($cat->is_parent==1) -->
                         <!-- Single Banner  -->
-                        <div class="col-lg-4 col-md-6 col-12">
+                        <!-- <div class="col-lg-4 col-md-6 col-12">
                             <div class="single-banner">
                                 {{-- @if($cat->photo)
                                     <img src="{{asset($cat->photo)}}" alt="{{$cat->photo}}">
@@ -59,13 +59,13 @@
                                 </div>
                             </div>
                         </div>
-                    @endif
+                    @endif -->
                     <!-- /End Single Banner  -->
-                @endforeach
+                <!-- @endforeach
             @endif
         </div>
     </div>
-</section>
+</section> -->
 <!-- End Small Banner -->
 
 <!-- Start Product Area -->
@@ -170,20 +170,20 @@
     <div class="container">
         <div class="row shop_details">
             @if($shop_lists)
-                @foreach($shop_lists as $data)
+                @foreach($shop_lists as $data) 
                     <!-- Single Banner  -->
-                    <div class="col-lg-4 col-md-4 col-6">
+                     <div class="col-lg-4 col-md-4 col-6">
                         <div class="single-banner">
-                            <img src="{{asset($data->shop_image)}}" alt="{{$data->shop_image}}">
+                            <img src="{{asset('images/'.$data->shop_image)}}" alt="{{$data->shop_image}}">
                             <div class="content">
                                 <p>{{$data->service_type}}</p>
                                 <h3>{{$data->company_name }}</h3>
                                 <a href="{{asset('single_product/'.$data->id)}}">Shop Now</a>
                             </div>
                         </div>
-                    </div>
+                    </div> 
                     <!-- /End Single Banner  -->
-                @endforeach
+                 @endforeach
             @endif
         </div>
     </div>
@@ -339,8 +339,8 @@
                 <!-- Start Single Service -->
                 <div class="single-service">
                     <i class="ti-rocket"></i>
-                    <h4>Free shiping</h4>
-                    <p>Orders over $100</p>
+                    <h4>Fast Service</h4>
+                    <p>The Premium</p>
                 </div>
                 <!-- End Single Service -->
             </div>
@@ -348,8 +348,8 @@
                 <!-- Start Single Service -->
                 <div class="single-service">
                     <i class="ti-reload"></i>
-                    <h4>Free Return</h4>
-                    <p>Within 30 days returns</p>
+                    <h4>Best Satisfaction</h4>
+                    <p>Customer Oriented</p>
                 </div>
                 <!-- End Single Service -->
             </div>
@@ -357,8 +357,8 @@
                 <!-- Start Single Service -->
                 <div class="single-service">
                     <i class="ti-lock"></i>
-                    <h4>Sucure Payment</h4>
-                    <p>100% secure payment</p>
+                    <h4>Best Packages</h4>
+                    <p>One and Only</p>
                 </div>
                 <!-- End Single Service -->
             </div>
@@ -366,8 +366,8 @@
                 <!-- Start Single Service -->
                 <div class="single-service">
                     <i class="ti-tag"></i>
-                    <h4>Best Peice</h4>
-                    <p>Guaranteed price</p>
+                    <h4>Well Dominent Experience</h4>
+                    <p>Guaranteed Best Service</p>
                 </div>
                 <!-- End Single Service -->
             </div>
