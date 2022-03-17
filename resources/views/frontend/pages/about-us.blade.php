@@ -43,7 +43,7 @@
 							{{-- <div class="button">
 								<a href="https://www.youtube.com/watch?v=nh2aYrGMrIE" class="video video-popup mfp-iframe"><i class="fa fa-play"></i></a>
 							</div> --}}
-							<img src="@foreach($settings as $data) {{$data->photo}} @endforeach" alt="@foreach($settings as $data) {{$data->photo}} @endforeach">
+							<img src="{{asset('images/4AC0815400000578-5568309-image-a-33_1522626148047.jpg')}}" alt="@foreach($settings as $data) {{$data->photo}} @endforeach">
 						</div>
 					</div>
 				</div>

@@ -6,11 +6,12 @@ $(document).on('click', '.btn', function() {
 
 
     $.ajax({
-        url: '/filter',
+        uploadUrl: '{{route("category-filter")}}',
         data: {
             'id': cat_id,
         },
         success: function(response) {
+            // console.log(response);
             $('.shop_details').empty();
             $.each(response, function(k, v) {
 

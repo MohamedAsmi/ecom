@@ -187,4 +187,4 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']
     \UniSharp\LaravelFilemanager\Lfm::routes();
 });
 
-Route::get('/filter', 'CategoryController@categoryFilter');
+Route::get('/category-filter', 'CategoryController@categoryFilter')->name('category-filter');
