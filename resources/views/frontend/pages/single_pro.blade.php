@@ -9,10 +9,12 @@
 <div class="col-12">
     <h2 class="single_product_image">Our Package</h2>
     <div class="single-banner row">
-       
+
         @foreach($single_shops as $key =>$data)
-        <div class="col-lg-4 col-md-4 col-6 zoom" attr="{{$key}}">
-            <div class="signle_product_ss">{{$data->item_name}}</div>
+
+        <div class="col-lg-4 col-md-4 col-6 zoom" attr="{{$key}}" style="font-size: 30px;height: auto;text-align: center;">
+           <P style="margin-bottom: 10px;font-weight: 600;"> {{$data->item_name}}</P>
+           <a href="{{ url('/category_list_view?id=',$data->id) }}"><img src="{{asset('images/items/'.$data->image_path)}}" alt=""></a>
         </div>
         @endforeach
     </div>
@@ -96,26 +98,29 @@
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
 
-    .single_product_image{
+    .single_product_image {
         font-family: fangsong;
         text-align: center;
         width: 100%;
         padding: 30px 0px;
     }
-    .zoom {
-  padding: 50px;
-  /* background-color: green; */
-  transition: transform .2s;
-  width: 200px;
-  height: 200px;
-  margin: 0 auto;
-}
 
-.zoom:hover {
-  -ms-transform: scale(1.5); /* IE 9 */
-  -webkit-transform: scale(1.5); /* Safari 3-8 */
-  transform: scale(1.1); 
-}
+    .zoom {
+        padding: 50px;
+        /* background-color: green; */
+        transition: transform .2s;
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+    }
+
+    .zoom:hover {
+        -ms-transform: scale(1.5);
+        /* IE 9 */
+        -webkit-transform: scale(1.5);
+        /* Safari 3-8 */
+        transform: scale(1.1);
+    }
 </style>
 @endpush
 @push('scripts')

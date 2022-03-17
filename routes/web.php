@@ -188,3 +188,9 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']
 });
 
 Route::get('/category-filter', 'CategoryController@categoryFilter')->name('category-filter');
+Route::get('/category_list_view/{id}', 'CategoryController@categoryViews');
+Route::get('/furnitures_list_view/{id}', 'CategoryController@categoryViews');
+Route::get('/entertainment_list_view/{id}', 'CategoryController@categoryViews');
+
+
+
