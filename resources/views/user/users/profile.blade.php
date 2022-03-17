@@ -4,7 +4,7 @@
 
 @section('main-content')
     {{-- {{dd($profile)}} --}}
-    <div class="card shadow mb-4">
+    <div class="card col-md-8 card_sz shadow mb-4">
         <div class="row">
             <div class="col-md-12">
                 @include('backend.layouts.notification')
@@ -25,7 +25,7 @@
                             style="background-image: url('{{ asset($profile->cover_photo) }}')!important;">
 
                             @if ($profile->photo)
-                                <img class="card-img-top img-fluid roundend-circle mt-4"
+                                <img class="card-img-top  img-fluid roundend-circle mt-4"
                                     style="border-radius:50%;height:80px;width:80px;margin:auto;"
                                     src="{{ asset($profile->photo) }}" alt="profile picture">
                             @else
@@ -51,7 +51,7 @@
                         @csrf
                         <div class="form-group">
                             <label for="inputTitle" class="col-form-label">Name</label>
-                            <input id="inputTitle" type="text" name="name" placeholder="Enter name"
+                            <input id="inputTitle" required type="text" name="name" placeholder="Enter name"
                                 value="{{ $profile->name }}" class="form-control">
                             @error('name')
                                 <span class="text-danger">{{ $message }}</span>
@@ -84,7 +84,7 @@
                             @enderror
                         </div>
 
-                        <label for="inputPhoto" class="col-form-label">Photo</label>
+                        <label for="inputPhoto" class="col-form-label">Profile</label>
 
                         <div class="input-group">
 
@@ -96,20 +96,22 @@
                         @error('photo')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
-                </div>
-                <div class="form-group">
-                    <label for="role" class="col-form-label">Role</label>
-                    <select name="role" class="form-control">
-                        <option value="">-----Select Role-----</option>
-                        <option value="admin" {{ $profile->role == 'admin' ? 'selected' : '' }}>Admin</option>
-                        <option value="user" {{ $profile->role == 'user' ? 'selected' : '' }}>User</option>
-                    </select>
-                    @error('role')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
+
+                        <div class="form-group">
+                            <label for="role" class="col-form-label">Role</label>
+                            <select name="role" class="form-control">
+                                <option value="">-----Select Role-----</option>
+                                <option value="admin" {{ $profile->role == 'admin' ? 'selected' : '' }}>Admin</option>
+                                <option value="user" {{ $profile->role == 'user' ? 'selected' : '' }}>User</option>
+                            </select>
+                            @error('role')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <button type="submit" class="btn btn-success btn-sm">Update</button>
                 </div>
 
-                <button type="submit" class="btn btn-success btn-sm">Update</button>
                 </form>
             </div>
         </div>
@@ -158,6 +160,34 @@
     i {
         font-size: 14px;
         padding-right: 8px;
+    }
+
+    .sticky-footer {
+        display: none;
+
+    }
+
+    .card_sz {
+        margin-left: 30px
+    }
+
+    .pro_a:hover {
+        background-color: #5B2C6F;
+    }
+
+    .zoom {
+        padding: 50px;
+        /* background-color: green; */
+        transition: transform .2s;
+        /* Animation */
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+    }
+
+    .zoom:hover {
+        transform: scale(1.2);
+        /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
     }
 
 </style>

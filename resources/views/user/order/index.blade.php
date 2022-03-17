@@ -2,7 +2,7 @@
 
 @section('main-content')
  <!-- DataTales Example -->
- <div class="card shadow mb-4">
+ <div class="card col-md-11 caart shadow mb-4" style="margin-left:30px;">
      <div class="row">
          <div class="col-md-12">
             @include('user.layouts.notification')
@@ -89,6 +89,9 @@
   <style>
       div.dataTables_wrapper div.dataTables_paginate{
           display: none;
+      }
+      .carrt{
+        margin-left:30px;
       }
   </style>
 @endpush

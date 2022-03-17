@@ -5,7 +5,7 @@
       <div class="sidebar-brand-icon rotate-n-15">
         <i class=""></i>
       </div>
-      <div class="sidebar-brand-text mx-3">User</div>
+      <div class="sidebar-brand-text mx-3"><span style="padding-right: 5px;font-size: 15px;font-weight: 200">Welcome!!</span>{{Auth()->user()->name}}</div>
     </a>
 
     <!-- Divider -->

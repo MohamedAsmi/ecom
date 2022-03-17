@@ -2,7 +2,7 @@
 @section('title','E-SHOP || Comment Page')
 @section('main-content')
  <!-- DataTales Example -->
- <div class="card shadow mb-4">
+ <div class="card col-md-11 shadow mb-4" style="margin-left:30px;">
      <div class="row">
          <div class="col-md-12">
             @include('backend.layouts.notification')
