@@ -44,7 +44,7 @@
                     <td>{{$banner->slug}}</td>
                     <td>
                         @if($banner->photo)
-                            <img src="{{$banner->photo}}" class="img-fluid zoom" style="max-width:80px" alt="{{$banner->photo}}">
+                            <img src="https://c1.wallpaperflare.com/preview/663/806/537/celebration-christmas-close-up-decoration.jpg" class="img-fluid zoom" style="max-width:80px" alt="{{$banner->photo}}">
                         @else
                             <img src="{{asset('backend/img/thumbnail-default.jpg')}}" class="img-fluid zoom" style="max-width:100%" alt="avatar.png">
                         @endif

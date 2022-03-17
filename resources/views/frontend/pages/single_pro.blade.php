@@ -72,7 +72,7 @@
 @push('styles')
 <style>
     .signle_product_ss {
-        width: 84%;
+        width: 90%;
         margin: auto;
         background: #ededed;
         min-height: 160px;

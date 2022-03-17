@@ -94,6 +94,7 @@ class UsersController extends Controller
     public function update(Request $request, $id)
     {
         $user=User::findOrFail($id);
+        // dd($request);
         $this->validate($request,
         [
             'name'=>'string|required|max:30',
@@ -103,6 +104,8 @@ class UsersController extends Controller
             'photo'=>'nullable|string',
         ]);
         // dd($request->all());
+        $this->fileUpload($request);
+        // $path=.$request->photo;
         $data=$request->all();
         // dd($data);
         
@@ -116,7 +119,8 @@ class UsersController extends Controller
         return redirect()->route('users.index');
 
     }
-
+  
+    
     /**
      * Remove the specified resource from storage.
      *

@@ -40,10 +40,12 @@ class HomeController extends Controller
     }
 
     public function profileUpdate(Request $request,$id){
-        // return $request->all();
+    //  dd( $request->all());
+        $asd=$this->fileUpload($request,$id);
+
         $user=User::findOrFail($id);
-        $data=$request->all();
-        $status=$user->fill($data)->save();
+   
+        $status=$user->fill(['name'=>$request->name])->save();
         if($status){
             request()->session()->flash('success','Successfully updated your profile');
         }
@@ -51,6 +53,38 @@ class HomeController extends Controller
             request()->session()->flash('error','Please try again!');
         }
         return redirect()->back();
+    }
+
+    public function fileUpload($request,$id) {
+        // dd($request->hasFile('cover_photo'));
+        // $this->validate($request, [
+        //     'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        // ]);
+    
+        if ($request->hasFile('file') || $request->hasFile('cover_photo')) {
+            if($request->hasFile('file')){
+                $image = $request->file('file');
+            
+                $name = time().'.'.$image->getClientOriginalExtension();
+
+                $destinationPath = public_path('/images');
+                $path='/images/'.$name;
+                $image->move($destinationPath, $name);
+                $user=User::findOrFail($id);
+                $status=$user->fill(['photo' => $path])->save();
+            }elseif ($request->hasFile('cover_photo')){
+                // dd($request->file('cover_photo'));
+                $image = $request->file('cover_photo');
+                $name = time().'.'.$image->getClientOriginalExtension();
+                $destinationPath = public_path('/images');
+                $path='/images/'.$name;
+                // dd($path);
+                $image->move($destinationPath, $name);
+                $user=User::findOrFail($id);
+                $status=$user->fill(['cover_photo' => $path])->save();
+            }
+        }
+        return $path;
     }
 
     // Order
