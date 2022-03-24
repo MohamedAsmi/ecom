@@ -31,6 +31,8 @@
 <link rel="stylesheet" href="{{asset('frontend/css/slicknav.min.css')}}">
 <!-- Jquery Ui -->
 <link rel="stylesheet" href="{{asset('frontend/css/jquery-ui.css')}}">
+<!-- fontawsome -->
+<link rel="stylesheet" href="{{asset('fontawesome/css/all.min.css')}}">
 
 <!-- Eshop StyleSheet -->
 <link rel="stylesheet" href="{{asset('frontend/css/reset.css')}}">
@@ -57,12 +59,20 @@
         margin-left: 0px;
     }
 
-    .midium-banner .single-banner:hover {
+    /* .midium-banner .single-banner:hover {
+        width: 104%;
+        margin-left: -2%;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    } */
+    .midium-banner .hover-style {
         width: 104%;
         margin-left: -2%;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
-
+    .wt{
+        background-color: #fff !important;
+        border: 1px solid #f0f0f0;
+    }
     /*
 </style>
 @stack('styles')
