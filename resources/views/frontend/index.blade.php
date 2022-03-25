@@ -174,7 +174,7 @@
             <!-- Single Banner  -->
             <div class="col-lg-4 col-md-4 col-6 main">
                 <div class="single-banner">
-                    <img src="{{asset($data->shop_image)}}" alt="{{$data->shop_image}}">
+                    <img src="{{asset('images/'.$data->shop_image)}}" alt="{{$data->shop_image}}">
 
                 </div>
                 <div class="single-banner wt p-3">
