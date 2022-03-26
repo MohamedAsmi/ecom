@@ -24,7 +24,7 @@
      <section class="shop login section">
         <div class="container">
             <div class="row"> 
-            <div class="container register">
+            <!-- <div class="container register">
                 <div class="row">
                     <div class="col-md-3 register-left">
                         <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
@@ -46,18 +46,13 @@
                                 <h3 class="register-heading">Login</h3>
                                 <div class="row register-form">
                                     <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="First Name *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Last Name *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control" placeholder="Password *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control"  placeholder="Confirm Password *" value="" />
-                                        </div>
+                                    <div class="form-group">
+                                            <input type="email" class="form-control" placeholder="Your Email *" value="" />
+                                        </div> -->
+                                        <!-- <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Email *" value="" />
+                                        </div> -->
+                                        
                                         <!-- <div class="form-group">
                                             <div class="maxl">
                                                 <label class="radio inline"> 
@@ -70,14 +65,15 @@
                                                 </label>
                                             </div>
                                         </div> -->
-                                    </div>
+                                    <!-- </div>
                                     <div class="col-md-6">
+                                        
                                         <div class="form-group">
-                                            <input type="email" class="form-control" placeholder="Your Email *" value="" />
-                                        </div>
-                                        <div class="form-group">
+                                            <input type="password" class="form-control" placeholder="Password *" value="" />
+                                        </div> -->
+                                        <!-- <div class="form-group">
                                             <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Your Phone *" value="" />
-                                        </div>
+                                        </div> -->
                                         <!-- <div class="form-group">
                                             <select class="form-control">
                                                 <option class="hidden"  selected disabled>Please select your Sequrity Question</option>
@@ -89,7 +85,7 @@
                                         <!-- <div class="form-group">
                                             <input type="text" class="form-control" placeholder="Enter Your Answer *" value="" />
                                         </div> -->
-                                        <input type="submit" class="btnRegister"  value="Register"/>
+                                        <!-- <input type="submit" class="btnRegister"  value="Register"/>
                                     </div>
                                 </div>
                             </div>
@@ -97,28 +93,15 @@
                                 <h3  class="register-heading">Login</h3>
                                 <div class="row register-form">
                                     <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="First Name *" value="" />
+                                    <div class="form-group">
+                                            <input type="email" class="form-control" placeholder="Your Email *" value="" />
                                         </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Last Name *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="email" class="form-control" placeholder="Email *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" maxlength="10" minlength="10" class="form-control" placeholder="Phone *" value="" />
-                                        </div>
-
-
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <input type="password" class="form-control" placeholder="Password *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control" placeholder="Confirm Password *" value="" />
-                                        </div>
+                                        </div> -->
+                        
                                         <!-- <div class="form-group">
                                             <select class="form-control">
                                                 <option class="hidden"  selected disabled>Please select your Sequrity Question</option>
@@ -130,7 +113,8 @@
                                         <!-- <div class="form-group">
                                             <input type="text" class="form-control" placeholder="`Answer *" value="" />
                                         </div> -->
-                                        <input type="submit" class="btnRegister"  value="Register"/>
+                                        
+                                        <!-- <input type="submit" class="btnRegister"  value="Register"/>
                                     </div>
                                 </div>
                             </div>
@@ -138,13 +122,13 @@
                     </div>
                 </div>
 
-            </div>
-              <!--  <div class="col-lg-6 offset-lg-3 col-12">
+            </div> -->
+               <div class="col-lg-6 offset-lg-3 col-12">
                     <div class="login-form">
                         <h2>Login</h2>
-                        <p>Please register in order to checkout more quickly</p> -->
+                        <p>Please register in order to checkout more quickly</p> 
                         <!-- Form -->
-                        <!-- <form class="form" method="post" action="{{route('login.submit')}}">
+                        <form class="form" method="post" action="{{route('login.submit')}}">
                             @csrf
                             <div class="row">
                                 <div class="col-12">
@@ -185,7 +169,7 @@
                                     @endif
                                 </div>
                             </div>
-                        </form> -->
+                        </form> 
                         <!--/ End Form -->
                     </div>
                 </div>
@@ -197,7 +181,7 @@
     <!--/ End Login -->
 @endsection
 @push('styles')
-<!-- <style>
+<style>
     .shop.login .form .btn{
         margin-right:0;
     }
@@ -221,5 +205,5 @@
     .btn-google:hover{
         background:rgb(243, 26, 26) !important;
     }
-</style> -->
+</style>
 @endpush
