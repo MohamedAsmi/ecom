@@ -13,7 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Auth::routes(['register'=>false]);
+Auth::routes(['verify' => true]);
+
+Route::get('email/verify', 'Auth\VerificationController@show')->name('verification.notice');
+Route::get('email/verify/{id}', 'Auth\VerificationController@verify')->name('verification.verify');
+Route::get('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
+
+
 
 Route::get('user/login','FrontendController@login')->name('login.form');
 Route::post('user/login','FrontendController@loginSubmit')->name('login.submit');
@@ -146,7 +152,56 @@ Route::group(['prefix'=>'/admin','middleware'=>['auth','admin']],function(){
     Route::post('change-password', 'AdminController@changPasswordStore')->name('change.password');
 });
 
+Route::group(['prefix'=>'/customer','middleware'=>['auth','customer']],function(){
+    Route::get('/',function(){
+        return 'sdas';
+    })->name('customer');
+    // Route::get('/file-manager',function(){
+    //     return view('backend.layouts.file-manager');
+    // })->name('file-manager');
+    // // user route
+    // Route::resource('users','UsersController');
+    // // Banner
+    // Route::resource('banner','BannerController');
+    // // Brand
+    // Route::resource('brand','BrandController');
+    // // Profile
+    // Route::get('/profile','AdminController@profile')->name('admin-profile');
+    // Route::post('/profile/{id}','AdminController@profileUpdate')->name('profile-update');
+    // // Category
+    // Route::resource('/category','CategoryController');
+    // // Product
+    // Route::resource('/product','ProductController');
+    // // Ajax for sub category
+    // Route::post('/category/{id}/child','CategoryController@getChildByParent');
+    // // POST category
+    // Route::resource('/post-category','PostCategoryController');
+    // // Post tag
+    // Route::resource('/post-tag','PostTagController');
+    // // Post
+    // Route::resource('/post','PostController');
+    // // Message
+    // Route::resource('/message','MessageController');
+    // Route::get('/message/five','MessageController@messageFive')->name('messages.five');
 
+    // // Order
+    // Route::resource('/order','OrderController');
+    // // Shipping
+    // Route::resource('/shipping','ShippingController');
+    // // Coupon
+    // Route::resource('/coupon','CouponController');
+    // // Settings
+    // Route::get('settings','AdminController@settings')->name('settings');
+    // Route::post('setting/update','AdminController@settingsUpdate')->name('settings.update');
+
+    // // Notification
+    // Route::get('/notification/{id}','NotificationController@show')->name('admin.notification');
+    // Route::get('/notifications','NotificationController@index')->name('all.notification');
+    // Route::delete('/notification/{id}','NotificationController@delete')->name('notification.delete');
+    // // Password Change
+    // Route::get('change-password', 'AdminController@changePassword')->name('change.password.form');
+    // Route::post('change-password', 'AdminController@changPasswordStore')->name('change.password');
+});
 
 
 
@@ -156,7 +211,7 @@ Route::group(['prefix'=>'/admin','middleware'=>['auth','admin']],function(){
 
 
 // User section start
-Route::group(['prefix'=>'/user','middleware'=>['user']],function(){
+Route::group(['prefix'=>'/user','middleware'=>['user','verified']],function(){
     Route::get('/','HomeController@index')->name('user');
      // Profile
      Route::get('/profile','HomeController@profile')->name('user-profile');
@@ -191,6 +246,3 @@ Route::get('/category-filter', 'CategoryController@categoryFilter')->name('categ
 Route::get('/category_list_view/{id}', 'CategoryController@categoryViews');
 Route::get('/furnitures_list_view/{id}', 'CategoryController@categoryViews');
 Route::get('/entertainment_list_view/{id}', 'CategoryController@categoryViews');
-
-
-

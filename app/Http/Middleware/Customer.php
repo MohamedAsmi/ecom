@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class User
+class Customer
 {
     /**
      * Handle an incoming request.
@@ -13,10 +13,9 @@ class User
      * @param  \Closure  $next
      * @return mixed
      */
-    
     public function handle($request, Closure $next)
     {
-        if(empty(session('user'))){
+        if(empty(session('customer'))){
             return redirect()->route('login.form');
         }
         else{
