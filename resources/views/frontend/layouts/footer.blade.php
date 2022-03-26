@@ -123,6 +123,9 @@
 
 <!-- Active JS -->
 <script src="{{asset('frontend/js/active.js')}}"></script>
+<!-- <script src="{{asset('frontend/js/bootstrap1.min.js')}}"></script>
+<script src="{{asset('frontend/js/jquery1.min.js')}}"></script> -->
+
 
 
 @stack('scripts')
