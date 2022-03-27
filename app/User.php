@@ -2,9 +2,11 @@
 
 namespace App;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -25,19 +27,23 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $hidden = [
-        'password',
+        'password','remember_token'
     ];
 
     /**
      * The attributes that should be cast to native types.
      *
      * @var array
-    //  */
-    // protected $casts = [
-    //     'email_verified_at' => 'datetime',
-    // ];
+    */
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
 
     public function orders(){
         return $this->hasMany('App\Models\Order');
     }
+    // public function sendEmailVerificationNotification()
+    // {
+    //     $this->notify(new \App\Notifications\CustomVerifyEmail);
+    // }
 }

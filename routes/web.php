@@ -15,9 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes(['verify' => true]);
 
-Route::get('email/verify', 'Auth\VerificationController@show')->name('verification.notice');
-Route::get('email/verify/{id}', 'Auth\VerificationController@verify')->name('verification.verify');
-Route::get('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
+
 
 
 
@@ -106,6 +104,9 @@ Route::get('payment/success', 'PayPalController@success')->name('payment.success
 // Backend section start
 
 Route::group(['prefix'=>'/admin','middleware'=>['auth','admin']],function(){
+    Route::get('email/verify', 'Auth\VerificationController@show')->name('verification.notice');
+    Route::get('email/verify/{id}', 'Auth\VerificationController@verify')->name('verification.verify');
+    Route::post('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
     Route::get('/','AdminController@index')->name('admin');
     Route::get('/file-manager',function(){
         return view('backend.layouts.file-manager');
@@ -155,9 +156,11 @@ Route::group(['prefix'=>'/admin','middleware'=>['auth','admin']],function(){
 });
 
 Route::group(['prefix'=>'/customer','middleware'=>['auth','customer']],function(){
-    Route::get('/',function(){
-        return 'sdas';
-    })->name('customer');
+    Route::get('email/verify', 'Auth\VerificationController@show')->name('verification.notice');
+    Route::get('email/verify/{id}', 'Auth\VerificationController@verify')->name('verification.verify');
+    Route::post('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
+
+    Route::get('/','CustomerController@index')->name('customer');
     // Route::get('/file-manager',function(){
     //     return view('backend.layouts.file-manager');
     // })->name('file-manager');
@@ -211,9 +214,14 @@ Route::group(['prefix'=>'/customer','middleware'=>['auth','customer']],function(
 
 
 
-
 // User section start
-Route::group(['prefix'=>'/user','middleware'=>['user','verified']],function(){
+Route::group(['prefix'=>'/user','middleware'=>['user']],function(){
+    
+
+    Route::get('email/verify', 'Auth\VerificationController@show')->name('verification.notice');
+    Route::get('email/verify/{id}', 'Auth\VerificationController@verify')->name('verification.verify');
+    Route::post('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
+
     Route::get('/','HomeController@index')->name('user');
      // Profile
      Route::get('/profile','HomeController@profile')->name('user-profile');

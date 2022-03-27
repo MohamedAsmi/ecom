@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\VerifiesEmails;
-
+use Illuminate\Http\Request;
+use App\User;
 class VerificationController extends Controller
 {
     /*
@@ -33,6 +34,17 @@ class VerificationController extends Controller
      *
      * @return void
      */
+    public function verify(Request $request) {
+        // dd($request);
+        $userID = $request['id'];
+        $user = User::findOrFail($userID);
+        $date = date("Y-m-d g:i:s");
+        $user->email_verified_at = $date; // to enable the “email_verified_at field of that user be a current time stamp by mimicing the must verify email feature
+        $user->save();
+        return redirect()->route($request->user()->role);
+
+       
+    }
     public function __construct()
     {
         $this->middleware('auth');
