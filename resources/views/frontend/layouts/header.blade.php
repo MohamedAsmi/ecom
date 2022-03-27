@@ -33,9 +33,13 @@
                             </li>
                             {{-- <li><i class="ti-alarm-clock"></i> <a href="#">Daily deal</a></li> --}}
                             @auth
-                                @if (Auth::user()->role == 'admin')
+                                @if (auth()->user()->is_admin == 1)
                                     <li><i class="ti-user"></i> <a href="{{ route('admin') }}"
                                             target="_blank">Dashboard</a></li>
+                                @elseif(auth()->user()->is_admin == 2)
+                                    <li><i class="ti-user"></i> <a href="{{ route('customer') }}"
+                                            target="_blank">Dashboard</a>
+                                    </li>
                                 @else
                                     <li><i class="ti-user"></i> <a href="{{ route('user') }}"
                                             target="_blank">Dashboard</a></li>

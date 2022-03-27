@@ -19,9 +19,9 @@ Auth::routes(['verify' => true]);
 
 
 
-Route::get('user/login','FrontendController@login')->name('login.form');
-Route::post('user/login','FrontendController@loginSubmit')->name('login.submit');
-Route::get('user/logout','FrontendController@logout')->name('user.logout');
+Route::get('/login','FrontendController@login')->name('login.form');
+Route::post('/login','FrontendController@loginSubmit')->name('login.submit');
+Route::get('/logout','FrontendController@logout')->name('user.logout');
 
 Route::get('user/register','FrontendController@register')->name('register.form');
 Route::post('user/register','FrontendController@registerSubmit')->name('register.submit');

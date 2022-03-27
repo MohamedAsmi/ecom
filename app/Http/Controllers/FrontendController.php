@@ -20,10 +20,13 @@ use Illuminate\Support\Facades\DB;
 use Hash;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\Providers\RouteServiceProvider;
 
 class FrontendController extends Controller
 {
 
+    
     public function index(Request $request)
     {
         return redirect()->route($request->user()->role);
