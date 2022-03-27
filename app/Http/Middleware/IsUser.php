@@ -3,8 +3,8 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Http\Request;
-class Admin
+
+class IsUser
 {
     /**
      * Handle an incoming request.
@@ -13,22 +13,13 @@ class Admin
      * @param  \Closure  $next
      * @return mixed
      */
-    
-
     public function handle($request, Closure $next)
     {
-        
-        if(auth()->user()->is_admin == 1){
+        // dd($request);
+        if(auth()->user()->is_admin == 0){
             return $next($request);
         }
    
         return redirect('home')->with('error',"You don't have admin access.");
-        // if($request->user()->role=='admin'){
-        //     return $next($request);
-        // }
-        // else{
-        //     request()->session()->flash('error','You do not have any permission to access this page');
-        //     return redirect()->route($request->user()->role);
-        // }
     }
 }

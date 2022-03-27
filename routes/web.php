@@ -103,7 +103,8 @@ Route::get('payment/success', 'PayPalController@success')->name('payment.success
 
 // Backend section start
 
-Route::group(['prefix'=>'/admin','middleware'=>['auth','admin']],function(){
+Route::group(['prefix'=>'/admin','middleware'=>['auth','is_admin']],function(){
+    
     Route::get('email/verify', 'Auth\VerificationController@show')->name('verification.notice');
     Route::get('email/verify/{id}', 'Auth\VerificationController@verify')->name('verification.verify');
     Route::post('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
@@ -155,7 +156,7 @@ Route::group(['prefix'=>'/admin','middleware'=>['auth','admin']],function(){
     Route::post('change-password', 'AdminController@changPasswordStore')->name('change.password');
 });
 
-Route::group(['prefix'=>'/customer','middleware'=>['auth','customer']],function(){
+Route::group(['prefix'=>'/customer','middleware'=>['auth','is_customer']],function(){
     Route::get('email/verify', 'Auth\VerificationController@show')->name('verification.notice');
     Route::get('email/verify/{id}', 'Auth\VerificationController@verify')->name('verification.verify');
     Route::post('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
@@ -215,7 +216,7 @@ Route::group(['prefix'=>'/customer','middleware'=>['auth','customer']],function(
 
 
 // User section start
-Route::group(['prefix'=>'/user','middleware'=>['user']],function(){
+Route::group(['prefix'=>'/user','middleware'=>['auth','is_user']],function(){
     
 
     Route::get('email/verify', 'Auth\VerificationController@show')->name('verification.notice');
