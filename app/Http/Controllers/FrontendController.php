@@ -81,6 +81,16 @@ class FrontendController extends Controller
         return view('frontend.pages.about-us');
     }
 
+    public function registerPage()
+    {
+        return view('frontend.pages.register');
+    }
+
+    public function loginPage()
+    {
+        return view('frontend.pages.login');
+    }
+
     public function contact()
     {
         return view('frontend.pages.contact');
