@@ -5943,24 +5943,6 @@ Version:1.0
     padding: 10px;
 }
 
-.diamond {
-	width: 80px; 
-	height: 80px; 
-	background: blue;
-	margin: 3px 0 0 30px;
-	/* Rotate */
-	-webkit-transform: rotate(-45deg);
-	-moz-transform: rotate(-45deg);
-	-ms-transform: rotate(-45deg);
-	-o-transform: rotate(-45deg);
-	transform: rotate(-45deg);
-	/* Rotate Origin */
-	-webkit-transform-origin: 0 100%;
-	-moz-transform-origin: 0 100%;
-	-ms-transform-origin: 0 100%;
-	-o-transform-origin: 0 100%;
-	transform-origin: 0 100%;
-}
 
 /* single produect side bar */
 
@@ -5981,13 +5963,13 @@ Version:1.0
     padding-left: 0px;
     position: relative;
 }
-.review_points .dot{
+/* .review_points .dot{
     width: 30px;
     height: 30px;
     margin: 4px 0px 0px 19px;
     border-radius: 50%;
     position: absolute;
-}
+} */
 .review_points .dots_container .col-2{
     padding: 0px;
 }
@@ -6030,7 +6012,7 @@ Version:1.0
     border: 1px solid #de87ff;
 }
 .review_points input{
-    width: 50%;
+    width: 100%;
     float: left;
     padding: 20px;
     background: #333;
@@ -6110,4 +6092,131 @@ Version:1.0
 }
 .star_checked{
     background: #ffd358;
+}
+
+/* msg button */
+.position__fixed .chat-btn {
+    position: fixed;
+    right: 14px;
+    bottom: 70px;
+    cursor: pointer;
+    z-index: 100000;
+}
+
+.position__fixed .chat-btn .close {
+    display: none
+}
+
+.position__fixed .chat-btn i {
+    transition: all 0.9s ease
+}
+
+.position__fixed #check:checked~.chat-btn i {
+    display: block;
+    pointer-events: auto;
+    transform: rotate(180deg)
+}
+
+.position__fixed #check:checked~.chat-btn .comment {
+    display: none
+}
+
+.position__fixed .chat-btn i {
+    font-size: 22px;
+    color: #fff !important
+}
+
+.position__fixed .chat-btn {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    background-color: #5B2C6F;
+    color: #fff;
+    font-size: 22px;
+    border: none
+}
+
+.position__fixed .wrapper {
+    position: fixed;
+    right: 20px;
+    bottom: 100px;
+    width: 300px;
+    background-color: #fff;
+    border-radius: 5px;
+    opacity: 0;
+    transition: all 0.4s;
+    z-index: 100000;
+}
+
+.position__fixed .close{
+    float: right;
+    color: #fff;
+}
+
+.position__fixed #check:checked~.wrapper {
+    opacity: 1
+}
+
+.position__fixed .header {
+    padding: 13px;
+    background-color: #5B2C6F;
+    border-radius: 5px 5px 0px 0px;
+    margin-bottom: 10px;
+    color: #fff
+}
+
+.position__fixed .chat-form {
+    padding: 15px
+}
+
+.position__fixed textarea{
+    float: left;
+    margin: 0px !important;
+    padding: 10px;
+    width: 80%;
+    border: none;
+    border-bottom: 1px solid;
+}
+
+.position__fixed .chat-form textarea {
+    resize: none
+}
+
+.position__fixed .form-control:focus,
+.position__fixed .btn:focus {
+    box-shadow: none
+}
+
+.position__fixed .btn,
+.position__fixed .btn:focus,
+.position__fixed .btn:hover {
+    background-color: #5B2C6F;
+    border: #5B2C6F;
+    
+}
+.position__fixed .btn{
+    width: 16%;
+    float: left;
+    max-width: 20%;
+    border-radius: 50%;
+    margin-top: 10px;
+    padding: 12px 5px 12px 0px;
+    margin-bottom: 15px;
+}
+.position__fixed #check {
+    display: none !important
+}
+.position__fixed .text-center{
+    height: 250px;
+}
+
+
+.hiddden_p{
+    display: none !important;
+}
+.show_p{
+    display: block !important;
 }

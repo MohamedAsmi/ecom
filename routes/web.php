@@ -40,7 +40,7 @@ Route::get('/product-cat/{slug}','FrontendController@productCat')->name('product
 Route::get('/product-sub-cat/{slug}/{sub_slug}','FrontendController@productSubCat')->name('product-sub-cat');
 Route::get('/product-brand/{slug}','FrontendController@productBrand')->name('product-brand');
 Route::get('/single_product/{id}', 'FrontendController@single_product');
-
+Route::post('/store/review','reviewcontoller@store_reviews')->name('store-review');
 
 // Cart section
 Route::get('/add-to-cart/{slug}','CartController@addToCart')->name('add-to-cart')->middleware('user');
@@ -191,6 +191,5 @@ Route::get('/category-filter', 'CategoryController@categoryFilter')->name('categ
 Route::get('/category_list_view/{id}', 'CategoryController@categoryViews');
 Route::get('/furnitures_list_view/{id}', 'CategoryController@categoryViews');
 Route::get('/entertainment_list_view/{id}', 'CategoryController@categoryViews');
-
 
 

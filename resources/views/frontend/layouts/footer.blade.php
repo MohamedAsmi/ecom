@@ -1,3 +1,19 @@
+<!-- =================msg button============= -->
+@if(isset(Auth()->user()->id))
+<div class="position__fixed">
+	<input type="checkbox" id="check"> <label class="chat-btn"> <i class="fa fa-commenting comment"></i> </label>
+	<div class="wrapper">
+		<div class="header">
+			<h6>Let's Chat - Online <i class="fa fa-close close"></i></h6>
+
+		</div>
+		<div class="text-center p-2"> <span>Please fill out the form to start chat!</span></div>
+		<div class="chat-form"> <textarea class="form-control" placeholder="Your Text Message" rows="1"></textarea> <button class="btn btn-success btn-block"><i class="fas fa-paper-plane-o ml-1"></i></button> </div>
+	</div>
+</div>
+@endif
+<!-- ======================================== -->
+
 <!-- Start Footer Area -->
 <footer class="footer">
 	<!-- Footer Top -->
@@ -124,13 +140,23 @@
 <!-- Active JS -->
 <script src="{{asset('frontend/js/active.js')}}"></script>
 
+<!-- Active JS -->
+<script src="{{asset('js/common.js')}}"></script>
 
 @stack('scripts')
 <script>
+	// if ($('.section_alert').text() != '') {
+	// 	$('.selected_d').addClass('show_p');
+	// 	setTimeout(function() {
+	// 		$('.selected_d').removeClass('show_p');
+	// 	}, 10000);
+	// };
+	$('.section_alert').html($('.section_alert').text());
 	setTimeout(function() {
 		$('.alert').slideUp();
 	}, 5000);
 	$(function() {
+
 		// ------------------------------------------------------- //
 		// Multi Level dropdowns
 		// ------------------------------------------------------ //
@@ -174,20 +200,7 @@
 			}
 		}
 	});
-	////////////////////////review//////////////////////
-	var to_point = $('.cu_star_point').text();
-	var point = to_point.split('.');
 
-	for (let w = 1; w <= parseInt(point[0]); w++) {
-		$("<style type='text/css'> .review_points .dot.d" + w + "{background-image: conic-gradient( transparent 0deg, #ffd358 0);} </style>").appendTo("head");
-	}
-	if (parseInt(point[1]) != 0) {
-		var e = parseInt(point[0]);
-		var ls_point = e + 1;
-		var fn_point = 360 / 100 * parseInt(point[1]) * 10;
-		fn_point = 360 - fn_point;
-		$("<style type='text/css'> .review_points .dot.d" + ls_point + "{background-image: conic-gradient( transparent " + fn_point + "deg, #ffd358 0);} </style>").appendTo("head");
-	}
 	$('body').on({
 		'click': function() {
 			var val = $('.review_form .form-control').map(function() {
@@ -202,26 +215,71 @@
 			$(this).addClass('bx_shadow');
 		}
 	}, '.review_form .form-control');
+	// $('.dou_button').on('click', function() {
+	// 	if ($(this).attr('attr') == 'review') {
+	// 		$('.nt_form').html('<div class="modal-body mx-3"><div class="md-form mb-5 pt-3"><i class="fas fa-user prefix grey-text"></i><label data-error="wrong" data-success="right" for="form34">Your name</label><input type="text" name="username" id="form34" style="border: none;border-bottom: 1px solid #ccc; box-shadow: none; width: 90%;"class="form-control validate"></div><div class="md-form mb-5" style="padding-left: 10%;"><label data-error="wrong" data-success="right" for="form32" style="position: relative;">How satisfied were you with the service?</label><div class="row"><div class="col-2"><img class="stars" src="'+baseURL+'/images/review/single_star.png" alt="1"></div><div class="col-2"><img class="stars" src="'+baseURL+'/images/review/single_star.png" alt="2"></div><div class="col-2"><img class="stars" src="'+baseURL+'/images/review/single_star.png" alt="3"></div><div class="col-2"><img class="stars" src="'+baseURL+'/images/review/single_star.png" alt="4"></div><div class="col-2"><img class="stars" src="'+baseURL+'/images/review/single_star.png" alt="5"></div></div><input type="hidden" id="stars" name="stars" value=""></div><div class="md-form"><i class="fas fa-pencil prefix grey-text" style="color: transparent !important;"></i><label data-error="wrong" data-success="right" for="form8">Your message</label><textarea type="text" id="form8" class="md-textarea form-control"style="border: none;border-bottom: 1px solid #ccc; box-shadow: none; width: 90%;" rows="3"></textarea></div></div>');
+	// 		$('.review_form .btn-unique').html('Leave Feedback  <i class="fas fa-pencil prefix grey-text"></i>');
+	$('.review_form .modal-title').html('Leave feedback about this service').css('padding', '0px 5px 10px 10px');
+	$('.review_form .stars').attr('src', baseURL + '/images/review/single_star.png');
+	$('.lv_feed').val($('.company_DET').attr('attr_id'));
 
-	$('.dou_button').on('click', function() {
-		if ($(this).attr('attr') == 'review') {
-			$('.nt_form').html('<div class="modal-body mx-3"><div class="md-form mb-5 pt-3"><i class="fas fa-user prefix grey-text"></i><label data-error="wrong" data-success="right" for="form34">Your name</label><input type="text" id="form34" style="border: none;border-bottom: 1px solid #ccc; box-shadow: none; width: 90%;"class="form-control validate"></div><div class="md-form mb-5" style="padding-left: 10%;"><label data-error="wrong" data-success="right" for="form32" style="position: relative;">How satisfied were you with the service?</label><div class="row"><div class="col-2"><img class="stars" src="/bagisto/storage/ecom/public/images/review/single_star.png" alt="1"></div><div class="col-2"><img class="stars" src="/bagisto/storage/ecom/public/images/review/single_star.png" alt="2"></div><div class="col-2"><img class="stars" src="/bagisto/storage/ecom/public/images/review/single_star.png" alt="3"></div><div class="col-2"><img class="stars" src="/bagisto/storage/ecom/public/images/review/single_star.png" alt="4"></div><div class="col-2"><img class="stars" src="/bagisto/storage/ecom/public/images/review/single_star.png" alt="5"></div></div></div><div class="md-form"><i class="fas fa-pencil prefix grey-text" style="color: transparent !important;"></i><label data-error="wrong" data-success="right" for="form8">Your message</label><textarea type="text" id="form8" class="md-textarea form-control"style="border: none;border-bottom: 1px solid #ccc; box-shadow: none; width: 90%;" rows="3"></textarea></div></div>');
-			$('.review_form .btn-unique').html('Leave Feedback  <i class="fas fa-pencil prefix grey-text"></i>');
-			$('.review_form .modal-title').html('Leave feedback about this service').css('padding', '0px 5px 10px 10px');
-		} else {
-			$('.nt_form').html('<div class="modal-body mx-3"><div class="md-form mb-5 pt-3"><i class="fas fa-user prefix grey-text"></i><label data-error="wrong" data-success="right" for="form34">Your name</label><input type="text" id="form34" style="border: none;border-bottom: 1px solid #ccc; box-shadow: none; width: 90%;" class="form-control validate"></div><div class="md-form mb-5"><i class="fas fa-envelope prefix grey-text"></i><label data-error="wrong" data-success="right" for="form29">Your email</label><input type="email" id="form29"style="border: none;border-bottom: 1px solid #ccc; box-shadow: none; width: 90%;"  class="form-control validate"></div><div class="md-form mb-5"><i class="fas fa-tag prefix grey-text"></i><label data-error="wrong" data-success="right" for="form32">Subject</label><input type="text" id="form32" style="border: none;border-bottom: 1px solid #ccc; box-shadow: none; width: 90%;" class="form-control validate"></div><div class="md-form"><i class="fas fa-pencil prefix grey-text" style="color: transparent !important;"></i><label data-error="wrong" data-success="right" for="form8">Your message</label><textarea type="text" id="form8" class="md-textarea form-control" style="border: none;border-bottom: 1px solid #ccc; box-shadow: none; width: 90%;" rows="3"></textarea></div></div>');
-			$('.review_form .btn-unique').html('Send <i class="fas fa-paper-plane-o ml-1"></i>');
-			$('.review_form .modal-title').html('What do you want to know about this service?').css('padding', '0px 5px 20px 10px');
-		}
+
+	$('.position__fixed .chat-btn').on('click', function() {
+		$('.position__fixed .chat-btn').css('display', 'none');
+		$('.position__fixed .wrapper').removeAttr('style').css({
+			'display': 'block',
+			'opacity': '1'
+		});
 	})
+	$(".position__fixed .close").on('click', function() {
+		$('.position__fixed .chat-btn').css('display', 'flex');
+		$('.position__fixed .wrapper').removeAttr('style').css({
+			'display': 'none',
+			'opacity': '0'
+		});
+	})
+	// } else {
+	// 	$('.nt_form').html('<div class="modal-body mx-3"><div class="md-form mb-5 pt-3"><i class="fas fa-user prefix grey-text"></i><label data-error="wrong" data-success="right" for="form34">Your name</label><input type="text" id="form34" style="border: none;border-bottom: 1px solid #ccc; box-shadow: none; width: 90%;" class="form-control validate"></div><div class="md-form mb-5"><i class="fas fa-envelope prefix grey-text"></i><label data-error="wrong" data-success="right" for="form29">Your email</label><input type="email" id="form29"style="border: none;border-bottom: 1px solid #ccc; box-shadow: none; width: 90%;"  class="form-control validate"></div><div class="md-form mb-5"><i class="fas fa-tag prefix grey-text"></i><label data-error="wrong" data-success="right" for="form32">Subject</label><input type="text" id="form32" style="border: none;border-bottom: 1px solid #ccc; box-shadow: none; width: 90%;" class="form-control validate"></div><div class="md-form"><i class="fas fa-pencil prefix grey-text" style="color: transparent !important;"></i><label data-error="wrong" data-success="right" for="form8">Your message</label><textarea type="text" id="form8" class="md-textarea form-control" style="border: none;border-bottom: 1px solid #ccc; box-shadow: none; width: 90%;" rows="3"></textarea></div></div>');
+	// 	$('.review_form .btn-unique').html('Send <i class="fas fa-paper-plane-o ml-1"></i>');
+	// 	$('.review_form .modal-title').html('What do you want to know about this service?').css('padding', '0px 5px 20px 10px');
+	// 	}
+	// })
 
 	$('body').on({
 		'click': function() {
 			$('.review_form .stars').removeClass("star_checked");
 			var count = $(this).attr('alt');
 			for (let y = 1; y <= parseInt(count); y++) {
-				$('.review_form .stars[alt="'+y+'"]').addClass('star_checked');
+				$('.review_form .stars[alt="' + y + '"]').addClass('star_checked');
+			}
+			$('#review_stars').val(count);
+		}
+	}, '.review_form .stars');
+	$('.position__fixed .chat-btn').hide();
+	$('.position__fixed .wrapper').css({
+		'opacity': '1'
+	});
+	$(document).ready(function() {
+		if ($('.st_po').attr('id').replace('star_points_', '') != 0) {
+			var to_points = $('.st_po').attr('id').replace('star_points_', '').split('___');
+			var to_point = to_points[1] * 5;
+			final_point = to_points[0] / to_point * 5;
+			// console.log(final_point);
+			final_point = final_point.toFixed(1);
+			$('.cu_star_point').text(final_point);
+			////////////////////////review//////////////////////
+
+			var point = final_point.split('.');
+			for (let w = 1; w <= parseInt(point[0]); w++) {
+				$("<style type='text/css'> .review_points .dot.d" + w + "{background-image: conic-gradient( transparent 0deg, #ffd358 0);} </style>").appendTo("head");
+			}
+			if (parseInt(point[1]) != 0) {
+				var e = parseInt(point[0]);
+				var ls_point = e + 1;
+				var fn_point = 360 / 100 * parseInt(point[1]) * 10;
+				fn_point = 360 - fn_point;
+				$("<style type='text/css'> .review_points .dot.d" + ls_point + "{background-image: conic-gradient( transparent " + fn_point + "deg, #ffd358 0);} </style>").appendTo("head");
 			}
 		}
-	}, '.review_form .stars')
+	})
 </script>
