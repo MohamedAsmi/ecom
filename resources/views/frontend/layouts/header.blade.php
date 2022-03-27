@@ -36,9 +36,6 @@
                                 @if (Auth::user()->role == 'admin')
                                     <li><i class="ti-user"></i> <a href="{{ route('admin') }}"
                                             target="_blank">Dashboard</a></li>
-                                @elseif(Auth::user()->role == 'customer')
-                                    <li><i class="ti-user"></i> <a href="{{ route('customer') }}"
-                                            target="_blank">Dashboard</a></li>
                                 @else
                                     <li><i class="ti-user"></i> <a href="{{ route('user') }}"
                                             target="_blank">Dashboard</a></li>
@@ -133,8 +130,9 @@
                                                 $photo = explode(',', $data->product['photo']);
                                             @endphp
                                             <li>
-                                                <a href="{{ route('wishlist-delete', $data->id) }}" class="remove"
-                                                    title="Remove this item"><i class="fa fa-remove"></i></a>
+                                                <a href="{{ route('wishlist-delete', $data->id) }}"
+                                                    class="remove" title="Remove this item"><i
+                                                        class="fa fa-remove"></i></a>
                                                 <a class="cart-img" href="#"><img src="{{ $photo[0] }}"
                                                         alt="{{ $photo[0] }}"></a>
                                                 <h4><a href="{{ route('product-detail', $data->product['slug']) }}"

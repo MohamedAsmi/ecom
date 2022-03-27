@@ -2,6 +2,7 @@
 @yield('meta')
 <!-- Title Tag  -->
 <title>@yield('title')</title>
+<meta name="base_url" content="{{ url('/') }}">
 <!-- Favicon -->
 <link rel="icon" type="image/png" href="images/favicon.png">
 <!-- Web Font -->

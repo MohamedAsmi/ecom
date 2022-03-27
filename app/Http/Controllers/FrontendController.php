@@ -16,7 +16,7 @@ use App\Models\Shop;
 use Auth;
 use Session;
 use Newsletter;
-use DB;
+use Illuminate\Support\Facades\DB;
 use Hash;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -52,9 +52,28 @@ class FrontendController extends Controller
     {
         $single_shops = item_category::all();
         $shops = Shop::where('id', $id)->where('active', 1)->get();
+        $reviews = DB::table('commit_tables')
+            ->where('shop_id', $id)
+            ->leftJoin('users', 'commit_tables.user_id', '=', 'users.id')
+            ->leftJoin('reviews', 'commit_tables.review_id', '=', 'reviews.id')
+            ->orderBy('reviews.id', 'DESC')
+            ->get();
+        $count = 0;
+        $review_count = count($reviews);
+        foreach ($reviews as $key => $value) {
+            $count = $count + $value->stars;
+        }
+        if($review_count != 0){
+          $fin =  $count.'___'.$review_count;
+        }else{
+           $fin = $review_count; 
+        }
+        // dd($reviews);
+        request()->session()->flash('points', $fin);
         return view('frontend.pages.single_pro')
             ->with('single_shops', $single_shops)
-            ->with('shops', $shops);
+            ->with('shops', $shops)
+            ->with('reviews', $reviews);
     }
 
     public function aboutUs()
