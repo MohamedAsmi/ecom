@@ -20,6 +20,6 @@ class IsUser
             return $next($request);
         }
    
-        return redirect('home')->with('error',"You don't have access.");
+        // return redirect('home')->with('error',"You don't have access.");
     }
 }
