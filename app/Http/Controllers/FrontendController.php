@@ -58,6 +58,7 @@ class FrontendController extends Controller
         $shops = Shop::where('id', $id)->where('active', 1)->get();
         $reviews = DB::table('commit_tables')
             ->where('shop_id', $id)
+            ->where('rol_type', 'review')
             ->leftJoin('users', 'commit_tables.user_id', '=', 'users.id')
             ->leftJoin('reviews', 'commit_tables.review_id', '=', 'reviews.id')
             ->orderBy('reviews.id', 'DESC')

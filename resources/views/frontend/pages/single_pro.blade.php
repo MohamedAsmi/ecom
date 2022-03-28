@@ -153,6 +153,9 @@
         <div class="row">
             <span class="col-3"><i class="fa-solid fa-circle-exclamation"></i></span>
             @foreach($shops as $shop)
+            @php
+            $sh_id = $shop->id;
+            @endphp
             <h5 class="col-5 company_DET" attr_id="{{$shop->id}}">{{$shop->company_name}}</h5>
             <p class="col-2" style="color: #fff; font-size: 15px;"><span style=" color: red; font-size: 15px;">Total Price:<del> $ <span class="to_price" style="font-size: 15px;padding:0px;">{{$shop->price}}</span></del></span><br>Final Price: $ <span class="fin_price" style="font-size: 15px;padding:0px;">{{$shop->price}}</span></p>
             @endforeach
@@ -183,7 +186,7 @@
                     <input type="hidden" name="user_id" value="{{Auth()->user()->id}}">
                     <div class="nt_form">
                         <div class="modal-body mx-3">
-                            <div class="md-form mb-5 pt-3"><i class="fas fa-user prefix grey-text"></i><label data-error="wrong" data-success="right" for="form34">Your name</label><input type="text" name="username" id="form34" style="border: none;border-bottom: 1px solid #ccc; box-shadow: none; width: 90%;" class="form-control validate"></div>
+                            <div class="md-form mb-5 pt-3"><i class="fas fa-user prefix grey-text"></i><label data-error="wrong" data-success="right" for="form34">Your name</label><input type="text" name="username" id="form34" value="{{Auth()->user()->name}}" style="border: none;border-bottom: 1px solid #ccc; box-shadow: none; width: 90%;" class="form-control validate" disabled></div>
                             <div class="md-form mb-5" style="padding-left: 10%;"><label data-error="wrong" data-success="right" for="form32" style="position: relative;">How satisfied were you with the service?</label>
                                 <div class="row">
                                     <div class="col-2"><img class="stars" src="" alt="1"></div>
