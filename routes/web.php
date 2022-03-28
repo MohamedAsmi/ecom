@@ -47,6 +47,7 @@ Route::get('/product-sub-cat/{slug}/{sub_slug}','FrontendController@productSubCa
 Route::get('/product-brand/{slug}','FrontendController@productBrand')->name('product-brand');
 Route::get('/single_product/{id}', 'FrontendController@single_product');
 Route::post('/store/review','reviewcontoller@store_reviews')->name('store-review');
+Route::post('/chart','chartController@customerChart')->name('store-chart');
 
 // Cart section
 Route::get('/add-to-cart/{slug}','CartController@addToCart')->name('add-to-cart')->middleware('user');

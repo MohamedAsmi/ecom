@@ -15,8 +15,6 @@ class CreateCommitTablesTable extends Migration
     {
         Schema::create('commit_tables', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->integer('shop_id');
             $table->integer('review_id');
             $table->integer('oder_id')->default('null');
             $table->enum('rol_type',['review','chart'])->nullable();

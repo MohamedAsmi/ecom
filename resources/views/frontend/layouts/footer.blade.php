@@ -1,14 +1,24 @@
 <!-- =================msg button============= -->
 @if(isset(Auth()->user()->id))
 <div class="position__fixed">
+	@csrf
+	<input type="hidden" name="user_id" value="{{Auth()->user()->id}}">
+	<input type="hidden" name="shop_id" class="lv_feed">
+	<input type="hidden" name="rol" value="customer">
 	<input type="checkbox" id="check"> <label class="chat-btn"> <i class="fa fa-commenting comment"></i> </label>
 	<div class="wrapper">
 		<div class="header">
 			<h6>Let's Chat - Online <i class="fa fa-close close"></i></h6>
 
 		</div>
-		<div class="text-center p-2"> <span>Please fill out the form to start chat!</span></div>
-		<div class="chat-form"> <textarea class="form-control" placeholder="Your Text Message" rows="1"></textarea> <button class="btn btn-success btn-block"><i class="fas fa-paper-plane-o ml-1"></i></button> </div>
+		<div class="text-center p-2"> <span>Please ask a question to start chat!</span></div>
+
+		<div class="chat-form">
+			@if(isset($sh_id))
+			<textarea class="form-control" placeholder="Your Text Message" name="cu_msg" rows="1"></textarea> <button class="btn btn-success btn-block send_msg"><i class="fas fa-paper-plane-o ml-1"></i></button>
+			@endif
+		</div>
+
 	</div>
 </div>
 @endif
@@ -284,5 +294,30 @@
 				$("<style type='text/css'> .review_points .dot.d" + ls_point + "{background-image: conic-gradient( transparent " + fn_point + "deg, #ffd358 0);} </style>").appendTo("head");
 			}
 		}
+
+		$('.send_msg').on('click', function() {
+			var myKeyVals = {
+				'_token': $('.position__fixed [name="_token"]').val(),
+				'user_id': $('[name="user_id"]').val(),
+				'shop_id': $('[name="shop_id"]').val(),
+				'cu_msg': $('[name="cu_msg"]').val(),
+				'rol': $('[name="rol"]').val()
+			}
+			console.log(baseURL + "/chart");
+			$.ajax({
+				type: 'POST',
+				url: baseURL + "/chart",
+				data: myKeyVals,
+				// dataType: "text",
+				success: function(resultData) {
+					// console.log(resultData.length);
+					for (let p = 0; p < resultData.length; p++) {
+						resultData.each(function(index, value) {
+							console.log(value)
+						});
+					}
+				}
+			});
+		})
 	})
 </script>
